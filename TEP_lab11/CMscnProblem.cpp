@@ -1,7 +1,7 @@
 #include "pch.h"
 #include "CMscnProblem.h"
 #include "ErrorCodes.h"
-#include "Bounds.h"
+#include "Constants.h"
 #include "Matrix.h"
 #include "Array.h"
 #include "CRandom.h"

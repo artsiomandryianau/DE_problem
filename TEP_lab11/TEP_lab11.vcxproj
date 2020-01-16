@@ -152,7 +152,7 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClInclude Include="Array.h" />
-    <ClInclude Include="Bounds.h" />
+    <ClInclude Include="Constants.h" />
     <ClInclude Include="CDiffEvol.h" />
     <ClInclude Include="CMscnProblem.h" />
     <ClInclude Include="CRandom.h" />
