@@ -156,7 +156,7 @@ double CMscnProblem::dGetQuality(double * pdSolution, int &errCode)
 	for (int i = 0; i < correctSize; i++) {
 		if (pdSolution[i] < 0) {
 			errCode = NEGATIVE_VALUES;
-			//std::cout << "WYWALAM BO NEGATIVE";
+			
 		}
 	}
 	errCode = 0;
@@ -272,7 +272,7 @@ bool CMscnProblem::bConstraintsSatisfied(double * pdSolution, int& errCode)
 				position++;
 			}
 			if (res > sd->getValueAt(i, errCode)) {
-				//std::cout << "\nwywalam w 1";
+				
 				return false;
 			}
 			res = 0;
@@ -285,7 +285,7 @@ bool CMscnProblem::bConstraintsSatisfied(double * pdSolution, int& errCode)
 				position++;
 			}
 			if (res > sf->getValueAt(i, errCode)) {
-				//std::cout << "\nwywalam w 2";
+				
 
 				return false;
 			}
@@ -300,7 +300,7 @@ bool CMscnProblem::bConstraintsSatisfied(double * pdSolution, int& errCode)
 			}
 
 			if (res > sm->getValueAt(i, errCode)) {
-				//std::cout << "\nwywalam w 3";
+				
 
 				return false;
 			}
@@ -316,7 +316,7 @@ bool CMscnProblem::bConstraintsSatisfied(double * pdSolution, int& errCode)
 			}
 
 			if (res > ss->getValueAt(i, errCode)) {
-				//std::cout << "\nwywalam w 4";
+				
 
 				return false;
 
@@ -343,7 +343,7 @@ bool CMscnProblem::bConstraintsSatisfied(double * pdSolution, int& errCode)
 		}
 
 		if (sum2 > sum1) {
-			//std::cout << "\nwywalam w 5";
+			
 
 			return false;
 
@@ -369,9 +369,7 @@ bool CMscnProblem::bConstraintsSatisfied(double * pdSolution, int& errCode)
 		}
 
 		if (sum2 > sum1) {
-			//std::cout << "\nsum1" << sum1;
-			//std::cout << "\nsum" << sum2;
-		//	std::cout << "\nwywalam w 6";
+			
 
 			return false;
 
@@ -379,7 +377,7 @@ bool CMscnProblem::bConstraintsSatisfied(double * pdSolution, int& errCode)
 		return true;
 	}
 	else {
-		//std::cout << "\nwywalam w 7";
+		
 
 		return false;
 	}
@@ -400,43 +398,7 @@ double CMscnProblem::getMinAt(double * pdSolution, int index, int& errCode)
 	else {
 		return xdminmax->getValueAt(((index) / F), 2 * ((index%F)), errCode);
 	}
-	/*
-	if (index >= D * F + F * M) {
-		int position = 0;
-		index = index - (D*F + F * M);
-		for (int i = 0; i < M; i++) {
-			for (int j = 0; j < 2 * S; j += 2) {
-				if (position == index) {
-					return xmminmax[i][j];
-				}
-				position++;
-			}
-		}
-	}
-	if (index >= D * F) {
-		int position = 0;
-		index = index - (D*F);
-		for (int i = 0; i < F; i++) {
-			for (int j = 0; j < 2 * M; j += 2) {
-				if (position == index) {
-					return xfminmax[i][j];
-				}
-				position++;
-			}
-		}
-	}
-	else {
-		int position = 0;
-		for (int i = 0; i < D; i++) {
-			for (int j = 0; j < 2 * F; j += 2) {
-				if (position == index) {
-					return xdminmax[i][j];
-				}
-				position++;
-			}
-		}
-	}
-	*/
+	
 
 
 
@@ -458,43 +420,7 @@ double CMscnProblem::getMaxAt(double * pdSolution, int index, int&errCode)
 	else {
 		return xdminmax->getValueAt(((index) / F), 2 * ((index%F)) + 1, errCode);
 	}
-	/*
-	if (index >= D * F + F * M) {
-		int position = 0;
-		index = index - (D*F + F * M);
-		for (int i = 0; i < M; i++) {
-			for (int j = 1; j < 2 * S; j += 2) {
-				if (position == index) {
-					return xmminmax[i][j];
-				}
-				position++;
-			}
-		}
-	}
-	if (index >= D * F) {
-		int position = 0;
-		index = index - (D*F);
-		for (int i = 0; i < F; i++) {
-			for (int j = 1; j < 2 * M; j += 2) {
-				if (position == index) {
-					return xfminmax[i][j];
-				}
-				position++;
-			}
-		}
-	}
-	else {
-		int position = 0;
-		for (int i = 0; i < D; i++) {
-			for (int j = 1; j < 2 * F; j += 2) {
-				if (position == index) {
-					return xdminmax[i][j];
-				}
-				position++;
-			}
-		}
-	}
-	*/
+	
 }
 
 
@@ -1043,10 +969,12 @@ Array<double>* CMscnProblem::generateSolution(int & errCode)
 
 	return solution;
 }
+
 Array<double>* CMscnProblem::getSolution(int & errCode)
 {
 	return solution;
 }
+
 void CMscnProblem::setSolution(Array<double>* newSolution, int & errCode)
 {
 	if (newSolution->getSize() != D * F + F * M + M * S) {

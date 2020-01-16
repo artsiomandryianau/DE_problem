@@ -175,7 +175,7 @@
     <ClCompile Include="TEP_lab11.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <Text Include="differentialEvolution3.txt" />
+    <Text Include="differentialEvolution.txt" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

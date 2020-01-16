@@ -64,7 +64,7 @@
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <Text Include="differentialEvolution3.txt">
+    <Text Include="differentialEvolution.txt">
       <Filter>Resource Files</Filter>
     </Text>
   </ItemGroup>

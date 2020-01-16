@@ -40,21 +40,28 @@ double * CDiffEvol::getRandomInd()
 	return population[index];
 }
 
-bool CDiffEvol::individualsAreDifferent(double * ind, double * baseInd, double * addInd0, double * addInd1)
-{
-	for (int i = 0; i < problem->getSolutionSize(); i++) {
-		if (ind[i] != baseInd[i] || ind[i] != addInd0[i] || addInd0[i] != addInd1[i]) {
-			return true;
-		}
-		if (baseInd[i] != addInd0[i] || baseInd[i] != addInd1[i]) {
-			return true;
-		}
-		if (addInd0[i] != addInd1[i]) {
-			return true;
-		}
 
+bool CDiffEvol::individualsAreDifferent(double * ind, double * baseInd, double * addInd0, double * addInd1) {
+
+	int similarity = 0;
+
+	double dIndActualNumber = 0.0;
+	double dBaseIndActualNumber = 0.0;
+	double dAddInd0ActualNumber = 0.0;
+	double dAddInd1ActualNumber = 0.0;
+
+	for (int i = 0; i < problem->getSolutionSize(); i++) {
+		dIndActualNumber = ind[0];
+		dBaseIndActualNumber = baseInd[0];
+		dAddInd0ActualNumber = addInd0[0];
+		dAddInd1ActualNumber = addInd1[0];
+
+		if ((dIndActualNumber == dBaseIndActualNumber) && (dIndActualNumber == dAddInd0ActualNumber) && (dIndActualNumber == dAddInd1ActualNumber) 
+			&& (dBaseIndActualNumber == dAddInd0ActualNumber) && (dBaseIndActualNumber == dAddInd1ActualNumber) && (dAddInd0ActualNumber == dAddInd1ActualNumber))
+			similarity++;
 	}
-	return false;
+
+	return similarity != (problem->getSolutionSize());
 }
 
 double* CDiffEvol::search()
